@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useWeather } from '@/composables/useWeather'
 
 const mapContainer = ref<HTMLDivElement | null>(null)
 const mapError = ref(false)
-const { coordinates } = useWeather()
 
 // Exact New Kananga Municipal Hall coordinates
 const KANANGA_EXACT = {
