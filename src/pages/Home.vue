@@ -80,46 +80,46 @@ const news = ref([
 <template>
   <div>
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-primary-600 via-primary-650 to-primary-700 text-white py-20 md:py-40 relative overflow-hidden">
+    <section class="bg-gradient-to-br from-primary-600 via-primary-650 to-primary-700 text-white min-h-screen flex items-center relative overflow-hidden">
       <!-- Animated Background Elements -->
       <div class="absolute top-0 right-0 w-96 h-96 bg-primary-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
       <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent/20 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
       
-      <div class="max-w-container mx-auto px-4 relative z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="max-w-container mx-auto px-4 relative z-10 w-full py-12 md:py-0">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div class="animate-fadeInUp">
             <div class="mb-6 inline-block px-4 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full text-sm font-semibold">
               🏛️ Municipality of Kananga, Leyte
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 leading-tight">{{ t('hero-title') }}</h1>
-            <p class="text-xl text-primary-100 mb-8 leading-relaxed">{{ t('hero-subtitle') }}</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">{{ t('hero-title') }}</h1>
+            <p class="text-lg sm:text-xl text-primary-100 mb-8 leading-relaxed">{{ t('hero-subtitle') }}</p>
             <div class="flex gap-4 flex-wrap">
-              <RouterLink to="/services" class="px-8 py-4 bg-white text-primary-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-200 flex items-center gap-2">
+              <RouterLink to="/services" class="px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary-600 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-200 flex items-center gap-2 text-sm sm:text-base">
                 🔍 {{ t('hero-browse-services') }}
               </RouterLink>
-              <RouterLink to="/contact" class="px-8 py-4 bg-white/20 backdrop-blur border border-white/30 text-white rounded-xl font-bold hover:bg-white/30 transition-all duration-200 flex items-center gap-2 hover:shadow-xl">
+              <RouterLink to="/contact" class="px-6 sm:px-8 py-3 sm:py-4 bg-white/20 backdrop-blur border border-white/30 text-white rounded-xl font-bold hover:bg-white/30 transition-all duration-200 flex items-center gap-2 hover:shadow-xl text-sm sm:text-base">
                 📞 {{ t('hero-contact-us') }}
               </RouterLink>
             </div>
           </div>
-          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 shadow-2xl hover:shadow-2xl transition-all duration-300">
-            <h2 class="text-2xl font-bold mb-6">{{ t('hero-find-service') }}</h2>
+          <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl hover:shadow-2xl transition-all duration-300">
+            <h2 class="text-xl sm:text-2xl font-bold mb-6">{{ t('hero-find-service') }}</h2>
             <form class="space-y-4">
               <input
                 type="search"
                 :placeholder="t('hero-search-placeholder')"
-                class="w-full px-4 py-3 rounded-lg text-gray-900 bg-white/90 focus:outline-none focus:ring-2 focus:ring-accent"
+                class="w-full px-4 py-3 rounded-lg text-sm sm:text-base text-gray-900 bg-white/90 focus:outline-none focus:ring-2 focus:ring-accent"
               />
-              <button type="submit" class="w-full bg-accent text-white px-4 py-3 rounded-lg font-bold hover:shadow-lg hover:scale-105 transition-all duration-200">
+              <button type="submit" class="w-full bg-accent text-white px-4 py-3 rounded-lg font-bold hover:shadow-lg hover:scale-105 transition-all duration-200 text-sm sm:text-base">
                 Search Services
               </button>
             </form>
             <div class="mt-6 pt-6 border-t border-white/20">
-              <p class="text-sm mb-3 font-semibold">Popular services:</p>
+              <p class="text-xs sm:text-sm mb-3 font-semibold">Popular services:</p>
               <div class="flex flex-wrap gap-2">
-                <RouterLink to="/services/birth-certificate" class="text-sm bg-primary-700/60 hover:bg-primary-700 px-3 py-1 rounded-full transition-all duration-200 cursor-pointer">📄 Birth Certificate</RouterLink>
-                <RouterLink to="/services/business-permit-new" class="text-sm bg-primary-700/60 hover:bg-primary-700 px-3 py-1 rounded-full transition-all duration-200 cursor-pointer">💼 Business Permit</RouterLink>
-                <RouterLink to="/services/real-property-tax" class="text-sm bg-primary-700/60 hover:bg-primary-700 px-3 py-1 rounded-full transition-all duration-200 cursor-pointer">💰 Tax Payment</RouterLink>
+                <RouterLink to="/services/birth-certificate" class="text-xs sm:text-sm bg-primary-700/60 hover:bg-primary-700 px-2 sm:px-3 py-1 rounded-full transition-all duration-200 cursor-pointer">📄 Birth Certificate</RouterLink>
+                <RouterLink to="/services/business-permit-new" class="text-xs sm:text-sm bg-primary-700/60 hover:bg-primary-700 px-2 sm:px-3 py-1 rounded-full transition-all duration-200 cursor-pointer">💼 Business Permit</RouterLink>
+                <RouterLink to="/services/real-property-tax" class="text-xs sm:text-sm bg-primary-700/60 hover:bg-primary-700 px-2 sm:px-3 py-1 rounded-full transition-all duration-200 cursor-pointer">💰 Tax Payment</RouterLink>
               </div>
             </div>
           </div>
@@ -128,32 +128,35 @@ const news = ref([
     </section>
 
     <!-- Popular Services -->
-    <section class="py-20">
+    <section class="py-12 md:py-20">
       <div class="max-w-container mx-auto px-4">
-        <div class="flex items-center justify-between mb-12">
+        <div class="flex items-center justify-between mb-8 md:mb-12">
           <div>
-            <h2 class="text-4xl font-bold text-gray-900">{{ t('section-popular') }}</h2>
-            <p class="text-gray-600 mt-2">{{ t('section-popular-desc') }}</p>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900">{{ t('section-popular') }}</h2>
+            <p class="text-sm sm:text-base text-gray-600 mt-2">{{ t('section-popular-desc') }}</p>
           </div>
           <RouterLink to="/services" class="hidden md:inline-flex px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 hover:shadow-lg transition-all duration-200">
             {{ t('btn-view-all-services') }} →
           </RouterLink>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           <RouterLink
             v-for="service in popularServices"
             :key="service.id"
             :to="`/services/${service.id}`"
-            class="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all duration-300 hover:-translate-y-1"
+            class="group bg-white rounded-xl sm:rounded-2xl border border-gray-100 p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-xl hover:border-primary-200 transition-all duration-300 hover:-translate-y-1"
           >
-            <div class="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300 inline-block">{{ service.icon }}</div>
-            <h3 class="text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-200">{{ service.title }}</h3>
-            <p class="text-gray-600 text-sm mt-2 leading-relaxed">{{ service.description }}</p>
-            <div class="mt-4 text-primary-600 font-semibold text-sm group-hover:gap-1 flex items-center gap-0 transition-all duration-200">
+            <div class="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 md:mb-4 group-hover:scale-125 transition-transform duration-300 inline-block">{{ service.icon }}</div>
+            <h3 class="text-base sm:text-lg md:text-lg font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-200">{{ service.title }}</h3>
+            <p class="text-gray-600 text-xs sm:text-sm mt-1 sm:mt-2 leading-relaxed">{{ service.description }}</p>
+            <div class="mt-2 sm:mt-3 md:mt-4 text-primary-600 font-semibold text-xs sm:text-sm group-hover:gap-1 flex items-center gap-0 transition-all duration-200">
               Learn more <span>→</span>
             </div>
           </RouterLink>
         </div>
+        <RouterLink to="/services" class="md:hidden block mt-6 w-full px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700 hover:shadow-lg transition-all duration-200 text-center">
+          {{ t('btn-view-all-services') }} →
+        </RouterLink>
       </div>
     </section>
 

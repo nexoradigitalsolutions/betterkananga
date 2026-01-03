@@ -24,10 +24,10 @@ const legislativeItems = [
 </script>
 
 <template>
-  <nav class="flex gap-0">
+  <nav class="flex gap-1">
     <RouterLink
       to="/"
-      class="px-3 py-2 text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
+      class="px-2 md:px-3 py-2 text-sm md:text-base text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
       active-class="text-primary-600 bg-primary-50 font-semibold"
     >
       Home
@@ -39,21 +39,21 @@ const legislativeItems = [
         @mouseover="servicesDropdown = true"
         @mouseleave="servicesDropdown = false"
         @click="servicesDropdown = !servicesDropdown"
-        class="px-3 py-2 text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1 group"
+        class="px-2 md:px-3 py-2 text-sm md:text-base text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1"
       >
         Services
-        <span :class="['transition-transform', servicesDropdown ? 'rotate-180' : '']">▼</span>
+        <span :class="['transition-transform text-xs', servicesDropdown ? 'rotate-180' : '']">▼</span>
       </button>
       
       <div
         v-show="servicesDropdown"
         @mouseover="servicesDropdown = true"
         @mouseleave="servicesDropdown = false"
-        class="absolute left-0 mt-0 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-opacity"
+        class="absolute left-0 mt-0 w-48 md:w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50 opacity-0 group-hover:opacity-100 group-hover:pointer-events-auto pointer-events-none transition-opacity"
       >
         <RouterLink
           to="/services"
-          class="block px-4 py-2.5 text-gray-700 hover:text-primary-600 hover:bg-gray-50 border-b border-gray-100 font-semibold text-sm"
+          class="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-gray-50 border-b border-gray-100 font-semibold"
           @click="servicesDropdown = false"
         >
           View All Services
@@ -63,7 +63,7 @@ const legislativeItems = [
             v-for="cat in servicesCategories"
             :key="cat.categoryId"
             :to="{ path: '/services', query: { category: cat.categoryId } }"
-            class="block px-4 py-2 text-gray-700 hover:text-primary-600 hover:bg-primary-50 text-sm transition-colors"
+            class="block px-4 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-primary-50 transition-colors"
             @click="servicesDropdown = false"
           >
             {{ cat.name }}
@@ -74,7 +74,7 @@ const legislativeItems = [
 
     <RouterLink
       to="/government"
-      class="px-3 py-2 text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
+      class="px-2 md:px-3 py-2 text-sm md:text-base text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
       active-class="text-primary-600 bg-primary-50 font-semibold"
     >
       Government
@@ -82,7 +82,7 @@ const legislativeItems = [
 
     <RouterLink
       to="/statistics"
-      class="px-3 py-2 text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
+      class="px-2 md:px-3 py-2 text-sm md:text-base text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors"
       active-class="text-primary-600 bg-primary-50 font-semibold"
     >
       Statistics
@@ -94,10 +94,10 @@ const legislativeItems = [
         @mouseover="legislativeDropdown = true"
         @mouseleave="legislativeDropdown = false"
         @click="legislativeDropdown = !legislativeDropdown"
-        class="px-3 py-2 text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1 group"
+        class="px-2 md:px-3 py-2 text-sm md:text-base text-gray-700 hover:text-primary-600 rounded-lg hover:bg-gray-50 transition-colors flex items-center gap-1"
       >
         Legislative
-        <span :class="['transition-transform', legislativeDropdown ? 'rotate-180' : '']">▼</span>
+        <span :class="['transition-transform text-xs', legislativeDropdown ? 'rotate-180' : '']">▼</span>
       </button>
       
       <div

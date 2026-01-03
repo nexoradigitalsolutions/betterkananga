@@ -7,6 +7,7 @@ const appStore = useAppStore()
 const showMobileMenu = computed(() => appStore.isMobileMenuOpen)
 const mobileServicesOpen = ref(false)
 const mobileLegislativeOpen = ref(false)
+const scrolling = ref(true)
 
 const servicesCategories = [
   { name: 'Certificates', categoryId: 'certificates' },
@@ -29,33 +30,71 @@ const legislativeItems = [
 
 <template>
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
-    <!-- Hotline Bar -->
-    <div class="bg-gradient-to-r from-red-600 via-red-600 to-red-700 text-white py-2.5 text-sm">
-      <div class="max-w-container mx-auto px-4">
-        <div class="flex flex-wrap justify-center gap-4 md:gap-8">
-          <a href="tel:09274008033" class="flex items-center gap-2 hover:text-red-100 transition duration-200 hover:scale-105 transform">
-            <span>🚔 Police: 0927 400 8033</span>
+    <!-- Hotline Bar - Responsive for mobile -->
+    <div class="bg-gradient-to-r from-red-600 via-red-600 to-red-700 text-white py-2 md:py-3 text-xs md:text-sm overflow-hidden">
+      <div class="max-w-container mx-auto px-2 md:px-4">
+        <!-- Mobile view: Endless scroll marquee -->
+        <div 
+          class="md:hidden marquee-container group"
+          @mouseenter="scrolling = false"
+          @mouseleave="scrolling = true"
+          @touchstart="scrolling = false"
+          @touchend="scrolling = true"
+        >
+          <div class="marquee" :class="{ 'animate-marquee': scrolling }">
+            <a href="tel:09274008033" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              🚔 Police: 0927-400-8033
+            </a>
+            <a href="tel:09162840885" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              ❤️ MSWDO: 0916-284-0885
+            </a>
+            <a href="tel:09360620305" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              🔥 Fire: 0936-062-0305
+            </a>
+            <a href="tel:0906188086" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              🏢 DILG: 0906-188-086
+            </a>
+            <!-- Duplicate for seamless loop -->
+            <a href="tel:09274008033" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              🚔 Police: 0927-400-8033
+            </a>
+            <a href="tel:09162840885" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              ❤️ MSWDO: 0916-284-0885
+            </a>
+            <a href="tel:09360620305" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              🔥 Fire: 0936-062-0305
+            </a>
+            <a href="tel:0906188086" class="inline-flex items-center gap-1 px-3 hover:text-red-100 transition duration-200 font-semibold flex-shrink-0 whitespace-nowrap">
+              🏢 DILG: 0906-188-086
+            </a>
+          </div>
+        </div>
+        
+        <!-- Desktop view: Horizontal centered -->
+        <div class="hidden md:flex justify-center gap-8">
+          <a href="tel:09274008033" class="flex items-center gap-2 hover:text-red-100 transition duration-200">
+            <span>🚔 Police: 0927-400-8033</span>
           </a>
-          <a href="tel:09162840885" class="flex items-center gap-2 hover:text-red-100 transition duration-200 hover:scale-105 transform">
-            <span>❤️ MSWDO: 0916 284 0885</span>
+          <a href="tel:09162840885" class="flex items-center gap-2 hover:text-red-100 transition duration-200">
+            <span>❤️ MSWDO: 0916-284-0885</span>
           </a>
-          <a href="tel:09360620305" class="flex items-center gap-2 hover:text-red-100 transition duration-200 hover:scale-105 transform">
-            <span>🔥 Fire: 0936 062 0305</span>
+          <a href="tel:09360620305" class="flex items-center gap-2 hover:text-red-100 transition duration-200">
+            <span>🔥 Fire: 0936-062-0305</span>
           </a>
-          <a href="tel:0906188086" class="flex items-center gap-2 hover:text-red-100 transition duration-200 hover:scale-105 transform">
-            <span>🏢 DILG: 0906 188 086</span>
+          <a href="tel:0906188086" class="flex items-center gap-2 hover:text-red-100 transition duration-200">
+            <span>🏢 DILG: 0906-188-086</span>
           </a>
         </div>
       </div>
     </div>
 
     <!-- Main Header -->
-    <div class="max-w-container mx-auto px-4 py-4">
-      <div class="flex items-center justify-between">
+    <div class="max-w-container mx-auto px-4 py-3 md:py-4">
+      <div class="flex items-center justify-between gap-3">
         <!-- Logo -->
-        <RouterLink to="/" class="flex items-center gap-2 font-bold text-xl group">
-          <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center text-white font-bold shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-200 transform">BK</div>
-          <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">BetterKananga</span>
+        <RouterLink to="/" class="flex items-center gap-1.5 md:gap-2 font-bold text-base md:text-xl group flex-shrink-0 min-w-0">
+          <div class="w-9 md:w-10 h-9 md:h-10 bg-gradient-to-br from-primary-600 to-primary-700 rounded-lg flex items-center justify-center text-white text-xs md:text-base font-bold shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-200 transform flex-shrink-0">BK</div>
+          <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent truncate">BetterKananga</span>
         </RouterLink>
 
         <!-- Desktop Navigation + Language Selector -->
@@ -226,4 +265,32 @@ const legislativeItems = [
 </template>
 
 <style scoped>
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  display: flex;
+  animation: scroll-left 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee.animate-marquee {
+  animation: scroll-left 30s linear infinite;
+}
+
+.marquee-container:hover .marquee,
+.marquee-container:focus-within .marquee {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 </style>
